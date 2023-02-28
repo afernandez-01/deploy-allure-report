@@ -1,0 +1,22 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "test_api",
+    "children" : [ {
+      "name" : "test_get_products_list",
+      "uid" : "4a6419e45aef6e48",
+      "parentUid" : "afb57f624e472244ee6d0bc8eb8e74ea",
+      "status" : "passed",
+      "time" : {
+        "start" : 1677622030040,
+        "stop" : 1677622030431,
+        "duration" : 391
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "afb57f624e472244ee6d0bc8eb8e74ea"
+  } ],
+  "name" : "packages"
+}

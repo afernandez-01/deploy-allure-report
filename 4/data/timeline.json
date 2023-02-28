@@ -1,0 +1,26 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "fv-az613-173",
+    "children" : [ {
+      "name" : "2149-MainThread",
+      "children" : [ {
+        "name" : "test_get_products_list",
+        "uid" : "4a6419e45aef6e48",
+        "parentUid" : "cac52474298459f90709f67f73a31ed8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1677622030040,
+          "stop" : 1677622030431,
+          "duration" : 391
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "cac52474298459f90709f67f73a31ed8"
+    } ],
+    "uid" : "d3ca2fae6189fd1588bb0abe856ef877"
+  } ],
+  "name" : "timeline"
+}

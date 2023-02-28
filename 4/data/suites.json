@@ -1,0 +1,22 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "test_api",
+    "children" : [ {
+      "name" : "test_get_products_list",
+      "uid" : "4a6419e45aef6e48",
+      "parentUid" : "1909346d716315b605b14bcb10204a8d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1677622030040,
+        "stop" : 1677622030431,
+        "duration" : 391
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "1909346d716315b605b14bcb10204a8d"
+  } ],
+  "name" : "suites"
+}
