@@ -31,6 +31,8 @@ jobs:
         python3 -m pipenv run pytest -vs -m for_github_actions_trigger
 
   allure-report:
+    permissions:
+      contents: write
     name: Generate Allure Report
     runs-on: ubuntu-latest
     steps:
@@ -45,9 +47,9 @@ jobs:
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
+        uses: simple-elf/allure-report-action@v1.6
         if: always()
-        #id: allure-report
+        id: allure-report
         with:
           allure_results: allure-results
           gh_pages: gh-pages
