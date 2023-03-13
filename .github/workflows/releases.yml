@@ -5,11 +5,38 @@ on:
     types: 
       - published
   
+env:
+  GTHUB_REF_NAME: ${{ github.ref_name }}
+  GTHUB_EVENT_NAME: ${{ github.event_name }}
+  GTHUB_BUILD_NUMBER: ${{ github.run_number }}
+  # GTHUB_PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+  GTHUB_RELEASE_TAG: ${{ github.event.release.tag_name }}
+  # GTHUB_PR_BRANCH_TITLE: ${{ github.event.pull_request.title }}
+  GTHUB_RELEASE_TITLE: ${{ github.event.release.name }}
+  # GTHUB_PR_MESSAGE: ${{ github.event.pull_request.body }}
+  GTHUB_RELEASE_MESSAGE: ${{ github.event.release.body }}
+
 jobs:
-  one:
+  get-github-context:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: Get GitHub Context
+        run: |
+          echo "$GTHUB_REF_NAME"
+          echo "$GTHUB_EVENT_NAME"
+          echo "$GTHUB_BUILD_NUMBER"
+          echo "GTHUB_RELEASE_TAG"
+          echo "$GTHUB_RELEASE_TITLE"
+          echo "$GTHUB_RELEASE_MESSAGE"
+        
+      - name: Set IMAGE_TAG (on pull_request event)
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "PR"
+
+      - name: Set IMAGE_TAG (on release event)
+        if: github.event_name == 'release' && github.event.action == 'published'
+        run: |
+          echo "release-${{ github.event.release.name }}-$(date +'%Y%m%d-%H%M%S')"
+
+  
