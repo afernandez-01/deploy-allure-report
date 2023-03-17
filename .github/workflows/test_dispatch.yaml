@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_to_env:
+        description: 'Deploy to ENV'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+        - test
+        - qa
+
+jobs:
+
+  update_test_images:
+    if: ${{ inputs.deploy_to_env == 'test' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: | 
+          echo "test"
+
+  update_qa_images:
+    if: ${{ inputs.deploy_to_env == 'qa' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: qa
+        run: | 
+          echo "QA"
