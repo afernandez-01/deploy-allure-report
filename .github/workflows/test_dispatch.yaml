@@ -10,6 +10,15 @@ on:
         - all
         - test
         - qa
+      application:
+        description: 'Application'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+        - test
+        - claimbuilderservice
+        - claimpollingservice
 
 jobs:
   update_test_images:
