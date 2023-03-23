@@ -4,16 +4,16 @@ on:
       deploy_to_env:
         description: 'Deploy to ENV'
         required: true
-        default: 'test'
+        default: 'all'
         type: choice
         options:
+        - all
         - test
         - qa
 
 jobs:
-
   update_test_images:
-    if: ${{ inputs.deploy_to_env == 'test' }}
+    if: ${{ inputs.deploy_to_env == 'test' || inputs.deploy_to_env == 'all'}}
     runs-on: ubuntu-latest
     steps:
       - name: test
@@ -21,7 +21,7 @@ jobs:
           echo "test"
 
   update_qa_images:
-    if: ${{ inputs.deploy_to_env == 'qa' }}
+    if: ${{ inputs.deploy_to_env == 'qa' || inputs.deploy_to_env == 'all' }}
     runs-on: ubuntu-latest
     steps:
       - name: qa
